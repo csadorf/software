@@ -18,7 +18,7 @@ From: glotzerlab/software:cuda8-flux
 	python3 -m pip install --upgrade pip
 	python3 -m pip install tensorflow-gpu
 	python3 -m pip install keras
-	python3 -m pip install Pillow jupyter scikit-learn pandas
+	python3 -m pip install Pillow scikit-learn pandas
 
 %environment
 	export LC_ALL=C
