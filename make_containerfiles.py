@@ -8,7 +8,9 @@ CONTAINER_FILENAME = {
 
 
 def main():
-    env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
+    env = jinja2.Environment(
+        loader=jinja2.FileSystemLoader('templates'),
+        trim_blocks=True)
 
     for container_system in sorted(CONTAINER_FILENAME):
         template = env.get_template(container_system + '.jinja')
@@ -23,7 +25,7 @@ def main():
                     image += ':' + tag
                     fn += '.' + tag
 
-                recipe = template.render({'base_image': image})
+                recipe = template.render({'base_image': image, 'cuda': cuda})
                 print("Writing '{}'.".format(fn))
                 with open(fn, 'w') as containerfile:
                     containerfile.write(recipe + '\n')

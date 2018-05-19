@@ -7,9 +7,17 @@ From: glotzerlab/software:flux
 %post
 	ln -s /usr/bin/python3 /usr/bin/python
 	apt-get update && apt-get install -y --no-install-recommends \
+		libhd5-dev \
+		graphviz \
+		locales \
+		python3-dev \
+		python3-pip \
 		python3-scipy \
 		python3-matplotlib \
 		python3-mpi4py
+	python3 -m pip install --upgrade pip
+	python3 -m pip install tensorflow
+	python3 -m pip install Pillow jupyter scikit-learn pandas
 
 %environment
 	export LC_ALL=C
