@@ -21,3 +21,4 @@ From: glotzerlab/software:flux
 
 %environment
 	export LC_ALL=C
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64
