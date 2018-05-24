@@ -21,6 +21,7 @@ From: {{ base_image }}
 	python3 -m pip install keras
 {% else %}
 	python3 -m pip install tensorflow
+	python3 -m pip install keras
 {% endif %}
 	python3 -m pip install Pillow scikit-learn pandas
 
