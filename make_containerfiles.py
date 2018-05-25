@@ -16,12 +16,21 @@ def main():
     for container_system in sorted(CONTAINER_FILENAME):
         template = env.get_template(container_system + '.jinja')
         for cuda in (False, True):
-            for system in ('flux', 'comet', 'bridges'):
+            for system in ('', 'flux', 'comet', 'bridges'):
 
                 image = 'glotzerlab/software'
                 fn = CONTAINER_FILENAME[container_system]
 
-                tag = 'cuda8-' + system if cuda else system
+                if system:
+                    if cuda:
+                        tag = 'cuda8-' + system
+                    else:
+                        tag = system
+                else:
+                    if cuda:
+                        tag = 'cuda8'
+                    else:
+                        tag = 'latest'
                 if tag:
                     image += ':' + tag
                     fn += '.' + tag
