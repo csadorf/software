@@ -16,10 +16,10 @@ From: glotzerlab/software:latest
 		python3-matplotlib \
 		python3-mpi4py
 	python3 -m pip install --upgrade pip
-	python3 -m pip install tensorflow
 	python3 -m pip install keras
-	python3 -m pip install Pillow scikit-learn pandas
+	python3 -m pip install Pillow
+	python3 -m pip install scikit-learn
+	python3 -m pip install pandas
 
 %environment
 	export LC_ALL=C
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64
